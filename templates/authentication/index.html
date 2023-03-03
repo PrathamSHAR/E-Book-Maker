@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for message in messages  %}
+    <div class="alert alert-{{ message.tags }}   alert-dismissible fade show" role=alert>
+        <strong>Holy guacamole!</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            
+            <span aria-hidden="true">&times;</span>
+         
+        </button>
+        
+    </div>
+    {% endfor %}
+
+    <h1>Welcome to home page</h1>
+    {% if user.is_authenticated  %}
+    <h2> hello {{fname}}</h2>
+    <button class="btn btn-primary"><a href="/signout"> Signout</a> </button>
+    {% else %}
+    <button class="btn btn-primary"><a href="/signup"> Signup</a> </button>
+    <button class="btn btn-primary"><a href="/signin"> Signin</a> </button>
+    {% endif %}
+    
+</body>
+</html>

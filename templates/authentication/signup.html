@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,17 @@
 </head>
 <body>
     <h1>SignUp</h1>
+    {% for message in messages  %}
+    <div class="alert alert-{{ message.tags }}   alert-dismissible fade show" role=alert>
+        <strong>Hello!</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            
+            <span aria-hidden="true">&times;</span>
+         
+        </button>
+        
+    </div>
+    {% endfor %}
     <form action="/signup" method="post">
         {% csrf_token %}
      <label for=""> Username</label>
@@ -30,5 +41,185 @@
      <br>
      <button type="submit" class="btn btn-primary"> Signup Now </button>
     </form>
+</body>
+</html>
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+    
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+    
+    /* Add a background color when the inputs get focus */
+    input[type=text]:focus, input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+    
+    /* Set a style for all buttons */
+    button {
+      background-color: #04AA6D;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+    
+    button:hover {
+      opacity:1;
+    }
+    
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+      padding: 14px 20px;
+      background-color: #f44336;
+    }
+    
+    /* Float cancel and signup buttons and add an equal width */
+    .cancelbtn, .signupbtn {
+      float: left;
+      width: 50%;
+    }
+    
+    /* Add padding to container elements */
+    .container {
+      padding: 16px;
+    }
+    
+    /* The Modal (background) */
+    .modal {
+      display: block; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: #474e5d;
+      padding-top: 50px;
+    }
+    
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less, depending on screen size */
+    }
+    
+    /* Style the horizontal ruler */
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+     
+    /* The Close Button (x) */
+    .close {
+      position: absolute;
+      right: 35px;
+      top: 15px;
+      font-size: 40px;
+      font-weight: bold;
+      color: #f1f1f1;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: #f44336;
+      cursor: pointer;
+    }
+    
+    /* Clear floats */
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    
+    /* Change styles for cancel button and signup button on extra small screens */
+    @media screen and (max-width: 300px) {
+      .cancelbtn, .signupbtn {
+         width: 100%;
+      }
+    }
+    </style>
+
+<body>
+    <h1>SignUp</h1>
+    <!-- {% for message in messages  %}-->
+    <div class="alert alert-{{ message.tags }}   alert-dismissible fade show" role=alert>
+        <!--<strong>Hello!</strong> {{message}}-->
+        <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            
+            <span aria-hidden="true">&times;</span>
+         
+        </button>-->
+        
+    </div >
+    <div id="id01" class="modal">
+    <!--{% endfor %} -->
+    <form class="modal-content" method="post" action="/signup" >
+        {% csrf_token%}
+        <div class="container">
+    <!--<form action="/signup" method="post">-->
+        
+        <!--{% csrf_token %}-->
+     <!--<label for=""> Username</label>
+     <input type="text" id="username" name="username" placeholder="enter name (text and number only)" required/>
+     <br>-->
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <br>
+      <label for=""> Username</label>
+     <input type="text" id="username" name="username" placeholder="enter name (text and number only)" required/>
+     <br>
+     <label for=""> First Name</label>
+     <input type="text" id="fname" name="fname" placeholder="Enter Firstname (text only)" required/>
+     <br>
+     <label for=""> Last Name</label>
+     <input type="text" id="lname" name="lname" placeholder="Enter Lastname (text only)" required/>
+     <br>
+     <label for=""> Email Address</label>
+     <input type="text" id="email" name="email" placeholder="Enter Email (text and number only)" required/>
+     <br>
+     <label for=""> Password</label>
+     <input type="password" id="pass1" name="pass1" placeholder="Enter Password (text and number only)" required/>
+     <br>
+     <label for=""> Confirm your Password</label>
+     <input type="password" id="pass2" name="pass2" placeholder="Confirm Password" required/>
+     <br>
+     <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+     <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  
+    </div>
+</form>
 </body>
 </html>

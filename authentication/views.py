@@ -17,7 +17,11 @@ import datetime
 # from django.core.mail import EmailMessage
 
 def home(request):
-    return render(request,'authentication/index.html')
+    fname = request.session.get('fname', None)
+    context={
+                'fname':fname
+            }
+    return render(request,'authentication/index.html',context)
 
 
 def signup(request):
@@ -94,6 +98,8 @@ def signin(request):
         if user is not None:
             login(request,user)
             fname=user.first_name
+            request.session['fname'] =fname
+
             context={
                 'fname':fname
             }

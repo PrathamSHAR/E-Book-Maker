@@ -1,0 +1,278 @@
+body{
+    display: flex;
+    background-image: url('wallpaper.jpg');
+    margin: 0;
+}
+
+.toolbar{
+    background-color: rgb(242, 222, 222);
+    display: grid;
+    width: 80px;
+    height: 100vh;
+}
+
+.item{
+    display: grid;
+}
+
+#popups{
+    display: none;
+    width: 250px;
+    background-color: rgba(112, 109, 109,0.3);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* text                       */
+.popups .text select{
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    margin: 8px;
+    padding: 6px 10px;
+}
+.popups .text .color{
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    width: fit-content;
+    padding: 6px 10px;
+    margin: 8px;
+}
+.popups .text .color input{
+    border: none;
+}
+.popups .text button{
+    background: #fff;
+    border-radius: 6px;
+    width: 40px;
+    height: 40px;
+    margin:8px;
+}
+
+#add-sign{
+    position: absolute;
+    border-radius: 50%;
+    bottom: 20px;
+    left:290px;
+}
+#active-text{
+    position: absolute;
+    padding: 5px;
+    background: rgba(0, 0, 0,0);
+    cursor: move;
+}
+.divprop{
+    position: absolute;
+    z-index: 4;
+}
+
+/* pages */
+.pages{
+    display: none;
+    height: 95vh;
+    width: 470px;
+    position: absolute;
+    right: 400px;
+    bottom: 14px;
+    overflow: hidden;
+    box-shadow: 10px 10px 5px #6b6a6a;
+    border: 1px solid;
+    background-color: #fff;
+}
+
+#active-page{
+    display: block;
+}
+.left , .right{
+   position: absolute;
+   top:45%;
+   color: #787777;
+}
+.left:hover,.right:hover{
+    color: black;
+}
+.left{
+    left:28%;
+}
+.right{
+    right:16%;
+}
+
+.add-page{
+    display: flex;
+    position: absolute;
+    bottom: 5%;
+    right:26%;
+    border-radius: 50%;
+    border: 1px outset black;
+    background-color: #fff;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+    justify-content: center;
+}
+/*    image    */
+#move{
+    background-color: #fff;
+    padding: 10px;
+}
+
+.pages>.image img{
+    height:150px;
+    width:200px;
+}
+.image{
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    z-index: 3;
+}
+#active-img{
+    cursor: move;
+}
+.popups .media button{
+    background: #fff;
+    border-radius: 6px;
+    width: 40px;
+    height: 40px;
+    margin:8px;
+}
+
+.popups .media .img-ele{
+    background-color: #fff;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 6px 6px;
+    margin-top: 10px;
+}
+
+
+/*  shape  */
+.popups .shapes .container{
+    background-color:gray;
+    padding: 10px;
+    overflow-x: auto;
+    height:150px;
+    border-radius: 3px;
+}
+.div-shape{
+    position: absolute;
+}
+.circle{
+    height: 50px;
+  width: 50px;
+  background-color: #555;
+  border-radius: 50%;
+  display: inline-block;
+}
+.square{
+    height: 50px;
+  width: 50px;
+  background-color: #555;
+  
+  display: inline-block;
+}
+.rectangle{
+    height: 50px;
+  width: 80px;
+  background-color: #555;
+  
+  display: inline-block;
+}
+.oval{
+    height: 50px;
+  width: 100px;
+  background-color: #555;
+  border-radius: 50%;
+  
+  display: inline-block;
+}
+.triangle{
+    width: 0;
+	height: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-bottom: 50px solid #555;
+    
+  display: inline-block;
+}
+.parallelogram{
+    width: 100px;
+	height: 50px;
+	transform: skew(20deg);
+	background: #555;
+  display: inline-block;
+}
+.trapezoid{
+    border-bottom: 50px solid #555;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	height: 0;
+	width: 100px;
+    
+  display: inline-block;
+}
+#active-shape{
+    cursor: move;
+}
+.shape-ele{
+    margin:10px;
+    padding:6px 7px;
+    border-radius: 6px;
+    width: fit-content;
+    background-color: #fff;
+}
+.output{
+    height:200px;
+    background-color: #555;
+    overflow-y: scroll;
+}
+
+/*sticker*/
+.sticker-item{
+    display: inline-block;
+    margin: 5px;
+}
+
+/*  emojis */
+.emoji-container{
+    background-color: #555;
+    height:300px;
+    width: 250px;
+    overflow-y: scroll;
+}
+.emoji-item{
+    display: inline-block;
+    cursor: pointer;
+}
+.emoji-div{
+    position: absolute;
+    cursor:default;
+}
+#active-emoji{
+    cursor: move;
+}
+.emoji-ele{
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 8px 10px;
+    border-radius: 5px;
+}
+
+/*  save button   */
+
+.save,.final{
+    position: absolute;
+    right:30px;
+}
+.final{
+    top:20px;
+}
+.save{
+    bottom:20px;
+}

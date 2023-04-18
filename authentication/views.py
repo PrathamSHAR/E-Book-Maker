@@ -109,10 +109,6 @@ def signin(request):
         else:
             messages.error(request,"You Are not registered user First Signup ")
             return redirect('home')
-            
-
-        
-
     return render(request,"authentication/signin.html")
 
 def signout(request):
@@ -163,6 +159,9 @@ def inputotp(request):
    
         
     return render(request,'authentication/otp.html')
+
+def editor(request):
+     return render(request,'editor/index.html')
 
 
 

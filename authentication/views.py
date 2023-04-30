@@ -32,6 +32,8 @@ def signup(request):
        email=    request.POST.get('email')
        pass1=    request.POST.get('pass1')
        pass2=    request.POST.get('pass2')
+       request.session['pass1'] =pass1
+       request.session['xname'] =fname
 
 
     #    if User.objects.filter(username=username):
@@ -58,7 +60,7 @@ def signup(request):
        
        
        #WELCOME EMAIL
-       otp=random.randint(1,9)
+       otp=random.randint(234532,999999)
        subject="Welcome to bg  - Django Login"
        message= "Hello " + myuser.first_name + " Welcome to Bg Your otp is "+ str(otp)
        from_email=settings.EMAIL_HOST_USER
@@ -150,8 +152,20 @@ def inputotp(request):
                 myuser=User.objects.get(username=username)
                 myuser.is_active=True
                 myuser.save()
-                print("my user",myuser.is_active)
-                return render(request,'authentication/verifyingotp.html')
+                pass1 = request.session.get('pass1', None)
+                pass1=int(pass1)
+                user=authenticate(username=username,password=pass1)
+                if user is not None:
+                   login(request,user)
+                   fname=user.first_name
+                   request.session['fname'] =fname
+
+                   context={
+                   'fname':fname
+                   }
+                
+                   print("my user",myuser.is_active)
+                   return render(request,'authentication/index.html',context)
             else:
                 return redirect('home')
         except:

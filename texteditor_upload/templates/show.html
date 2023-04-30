@@ -1,0 +1,45 @@
+<html>
+    <head>
+        {%load static %}
+        <link  href="{% static 'style/booktyle.css' %}" rel="stylesheet">
+        <title>
+            Explore and read
+        </title>
+    </head>
+    <body>
+
+        <form class='search' action="{% url 'search' %}" method="get" value="{{request.GET.q}}">
+            <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search by genre">
+            <input type="submit" name="submit" value="Search">
+        </form>
+        </div>
+        <div class="container">
+           
+            {% if records %}
+            <table id="content" >
+                <th>Cover</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Action</th>
+                {% for x in records %}
+                <tr>
+                    <td><img src="/media/{{x.cover_page}}" height="200px" width="160px"></td>
+                    <td>{{x.title}}</td>
+                    <td>{{x.authorname}}</td>
+                    <td>{{x.genre}}</td>
+                    <td><a href="/media/{{x.file}}" >Read</a></td>
+                    <td><a href="{% url 'read' %}" >Rate it</a></td>
+                    
+                </tr>
+                {%endfor%}
+            </table>
+            {% else %}
+            No result found
+            {% endif %}
+        </div>
+    </body>
+    <script>
+        
+    </script>
+</html>

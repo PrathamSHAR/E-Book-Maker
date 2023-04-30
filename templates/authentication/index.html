@@ -2,183 +2,171 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link rel="stylesheet" href="css/homestyle.css">
-        <link rel="stylesheet" href="css/slidestyling.css">
-        <link rel="stylesheet" href="css/slide2styling.css"> -->
-        <style>
-            body{
-    margin: 0;
-}
-/* topbar*/
-.topbar{
-    background-image:url('images/lib3.jpg');
-    height: 600px;
-    background-size: auto;
-    background-repeat: no-repeat;
-}
-.topbar>.text{
-    position: absolute;
-    top: 200px;
-    left: 250px;
-    font-family: 'Times New Roman';
-    font-size: 60px;
-    font-style: italic;
-    background-image:url('images/pen.jpg');
-    color:white;
-    background-color: rgb(63, 20, 20,0.4);
-    
-}
-.text:hover{
-    opacity: 1;
-}
-#img{
-    position: absolute;
-    right: 10px;
-    top:10px;
-}
-#img img{
-  width: 40px;
-  border-radius: 50%;
-}
-#name,#home,#store,#abt,#contact,#search{
-  display: inline-block;
-  margin-top: 10px;
-  color: white;
-}
-#search{
-  border-radius: 20%;
-  width: 300px;
-  margin-left: 30px;
-}
-#search input{
-  border-radius: 30px;
-  text-align: center;
-  height:30px;
-  width: 100%;
-  border: none;
-}
-
-#navbar a{
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 20px;
-    text-decoration: none;
-    color: white;
-}
-#navbar{
-    position: sticky;
-    height:100px;
-    top: 0px;
-    background-color: rgb(0,0, 0,0.3);
-    z-index: 99;
-    box-shadow: 0 0 10px rgb(0, 0, 0);
-}
-#navbar>#home{
-    background-color: brown;
-    display: inline-block;
-    border-radius: 50%;
-  }
-#home:hover,#store:hover,#abt:hover,#contact:hover{
-  background-color: brown;
-    border-radius: 50%;
-}
-
-
-
-  /*reader*/
-  .reader{
-    margin-left: 20px;
-    margin-top: 30px;
-    height: 300px;
-    width: 400px;
-    border-radius: 10%;
-    background-image: url('images/openbook.jpg');
-    background-size: cover;
-    opacity: 0.8;
-  }
-  .reader:hover{
-    opacity: 1;
-    /* border-style: outset; */
-  }
-  .reader>.text{
-    color: rgb(143, 143, 199);
-    font-size: 40px;
-   
-    padding-top: 30px;
-    padding-left: 30px;
-  }
-/*author*/
-.author{
-    margin-left: 20px;
-    margin-top: 30px;
-    height: 300px;
-    width: 400px;
-    border-radius: 10%;
-    background-image: url('pen.jpg');
-    background-size: cover;
-    opacity: 0.8;
-  }
-  .author:hover{
-    opacity: 1;
-    /* border-style: outset; */
-  }
-  .author>.text{
-    color: rgb(143, 143, 199);
-    font-size: 40px;
-    padding-top: 80px;
-    padding-left: 80px;
-  }
-  .readerauthor{
-    display: inline-flex;
-    padding: 20px;
-  }
-  .readerauthor a{
-    text-decoration: none;
-  }
-
-  /*     Footer       */
-  .footer{
-    height: 400px;
-    background-color: rgb(168, 184, 206);
-    margin-top: 40px;
-  }
-  
-
-        </style>
+        <link rel="stylesheet" href="{% static 'css/homestyle.css' %}">
+        <link rel="stylesheet" href="{% static 'css/slidestyling.css' %}">
+        <link rel="stylesheet" href="{% static 'css/slide2styling.css' %}">
         
         <title>
             Home Page
         </title>
     </head>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    box-sizing: border-box;
+
+}
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: #5f51de;
+    color: #525252;
+}
+nav{
+    background-color: black;
+    width: 100%;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+}
+.logo{
+    width: 120px;
+
+}
+.user{
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 30px;
+}
+nav ul{
+    width: 100%;
+    text-align: right;
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+
+}
+nav ul a{
+    color: white;
+    text-decoration:none ;
+}
+.sub-menu-cont{
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width:320px;
+    max-height:0px;
+    overflow:hidden;
+    transition: max-height 0.5s;
+}
+.sub-menu-cont.open-menu{
+    max-height: 400px;
+}
+
+.sub-menu{
+     background: white;
+     padding: 20px;
+     margin: 10px;
+}
+.user-info{
+   display: flex;
+   align-items: center; 
+}
+.user-info h3{
+    font-weight: 500;
+}
+.user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px ;
+}
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 10px;
+
+}
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+
+}
+.sub-menu-link p{
+    width: 100%;
+
+}
+.sub-menu-link img{
+    width: 40%;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+.sub-menu-link span{
+    font-size: 22px;
+    transition: transform 0.5s;
+
+}
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+
+}
+.sub-menu-link p:hover{
+    font-weight:600  ;
+}
+    </style>
     <body>
-        {% for message in messages  %}
-        <div class="alert alert-{{ message.tags }}   alert-dismissible fade show" role=alert>
-            <strong>Hello !</strong> {{message}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                
-                <span aria-hidden="true">&times;</span>
-             
-            </button>
-            
-        </div>
-        {% endfor %}
-    
-        <h1>Welcome to home page</h1>
-        {% if user.is_authenticated  %}
-        <h2> hello {{fname}}</h2>
-        <button class="btn btn-primary"><a href="/signout"> Signout</a> </button>
-        {% endif %}
+
+    <!--        Top Bar                     -->   
         <div class="topbar" >
             <div class="text"><p><b>"A writer only begins a book.<br>A reader finishes it."</b></p></div>
             <div id="navbar">
-                <div id="name" style="font-size: 30px;margin-right: 90px;margin-left: 20px;">WEB NAME</div>
+                {% if user.is_authenticated  %}
+                <div id="name" style="font-size: 30px;margin-right: 90px;margin-left: 20px;">Hello! {{fname}}</div>
+                {% endif %}
                 <div id="home"><a href="homepage.html">Home</a></div>
                 <div id="store"><a href="store.html">Store</a></div>
                 <div id="contact"><a href="">Contact</a></div>
                 <div id="abt"><a href="about.html">About</a></div>
                 <div id="img">
-                    <a href="profile.html"><img src="images/profile.png" alt="profile" width=35px></a>
+                    <!-- <a href="profile.html"><img src="{% static 'images/profile.png' %}" alt="profile" onclick="toggleMenu()" width=35px></a> -->
+                
+                <img src="{% static 'images/profile.png' %}" class="user" onclick="toggleMenu()">
+                <div class="sub-menu-cont" id="sub-menu">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <img src="{% static 'images/profile.png' %}">
+                            <h3>user</h3>
+    
+                        </div>
+                        <hr>
+                        <a href="#" class="sub-menu-link"><img src="{% static 'images/profile.png' %}"><p style="color:#7f5757">Edit Profile</p><span>></span></a>
+                        <a href="#" class="sub-menu-link"><img src="settings.png"><p style="color:#7f5757">Settings</p><span>></span></a>
+                        <a href="#" class="sub-menu-link"><img src="help.png"><p style="color:#7f5757">Help & Support</p><span>></span></a>
+                        {% if user.is_authenticated  %}
+                        <a href="/signout" class="sub-menu-link"><img src="logout.png"  a href="/signout" ><p style="color:#7f5757">Logout</p><span>></span></a>
+                        {% else %}
+                        <a href="/signin" class="sub-menu-link"><img src="logout.png"><p style="color:#7f5757">Signin</p><span>></span></a>
+                        <a href="/signup" class="sub-menu-link"><img src="logout.png"><p style="color:#7f5757">Signup</p><span>></span></a>
+                        {% endif %}
+    
+                    </div>
                 </div>
+            </div>
+    
                 <div id="search">
                     <form action="">
                         <input type="text" name="srch" placeholder="Search" >
@@ -195,7 +183,7 @@
             <div class="text"><pre>Read and Explore </pre></div>
         </div>
         </a>
-        <a href="editor.html">
+        <a href="/texteditor">
         <div class="author">
             <div class="text">Editor</div>
         </div>
@@ -210,37 +198,37 @@
         <a  class="prev" onclick="showp()">&laquo;</a>
         <div class="container" id="container">
             <div class="item">
-                <img src="images/book cover.jpg">
+                <img src="{% static 'images/book cover.jpg' %}">
                 <div class="num">1</div>
             </div>
 
             <div class="item">
-                <img src="images/book cover1.jpeg">
+                <img src="{% static 'images/book cover1.jpeg' %}">
                 <div class="num">2</div>
             </div>
 
             <div class="item">
-                <img src="images/book cover2.jpg">
+                <img src="{% static 'images/book cover2.jpg' %}">
                 <div class="num">3</div>
             </div>
 
             <div class="item">
-                <img src="images/book cover3.jpg">
+                <img src="{% static 'images/book cover3.jpg' %}">
                 <div class="num">4</div>
             </div>
 
             <div class="item">
-                <img src="images/book cover4.jpeg">
+                <img src="{% static 'images/book cover4.jpeg' %}">
                 <div class="num">5</div>
             </div>
 
             <div class="item">
-                <img src="images/book cover5.jpeg">
+                <img src="{% static 'images/book cover5.jpeg' %}">
                 <div class="num">6</div>
             </div>
 
             <div class="item">
-                <img src="images/book cover6.jpg">
+                <img src="{% static 'images/book cover6.jpg' %}">
                 <div class="num">7</div>
             </div>
         </div>
@@ -257,46 +245,46 @@
             <div class="slider">
                 <div class="container">
                     <div class="slide">
-                       <img src="images/book cover.jpg">
+                       <img src="{% static 'images/book cover.jpg' %}">
                     </div>
                     <div class="slide">
-                        <img src="images/book cover1.jpeg">
+                        <img src="{% static 'images/book cover1.jpeg' %}">
                      </div>
                      <div class="slide">
-                        <img src="images/book cover2.jpg">
+                        <img src="{% static 'images/book cover2.jpg' %}">
                      </div>
                      <div class="slide">
-                        <img src="images/book cover3.jpg">
+                        <img src="{% static 'images/book cover3.jpg' %}">
                      </div>
                      <div class="slide">
-                        <img src="images/book cover4.jpeg">
+                        <img src="{% static 'images/book cover4.jpeg' %}">
                      </div>
                      <div class="slide">
-                        <img src="images/book cover5.jpeg">
+                        <img src="{% static 'images/book cover5.jpeg' %}">
                      </div>
                      <div class="slide">
-                        <img src="images/book cover6.jpg">
+                        <img src="{% static 'images/book cover6.jpg' %}">
                      </div>
                      <div class="slide">
-                        <img src="images/book cover.jpg">
+                        <img src="{% static 'images/book cover.jpg' %}">
                      </div>
                      <div class="slide">
-                         <img src="/images/book cover1.jpeg">
+                         <img src="{% static 'images/book cover1.jpeg' %}">
                       </div>
                       <div class="slide">
-                         <img src="images/book cover2.jpg">
+                         <img src="{% static 'images/book cover2.jpg' %}">
                       </div>
                       <div class="slide">
-                         <img src="images/book cover3.jpg">
+                         <img src="{% static 'images/book cover3.jpg' %}"
                       </div>
                       <div class="slide">
-                         <img src="images/book cover4.jpeg">
+                         <img src="{% static 'images/book cover4.jpeg' %}">
                       </div>
                       <div class="slide">
-                         <img src="images/book cover5.jpeg">
+                         <img src="{% static 'images/book cover5.jpeg' %}">
                       </div>
                       <div class="slide">
-                         <img src="images/book cover6.jpg">
+                         <img src="{% static 'images/book cover6.jpg' %}">
                       </div>
                 </div>
             </div>
@@ -308,15 +296,13 @@
         <div class="footer">
 
         </div>
-        
-        <button class="btn btn-primary"><a href="/signup"> Signup</a> </button>
-        <button class="btn btn-primary"><a href="/signin"> Signin</a> </button>
-        
-       
+        <script>
+                 let subMenu = document.getElementById("sub-menu");
+        function toggleMenu(){
+            subMenu.classList.toggle("open-menu");
+        }
 
-    <!--        Top Bar                     -->   
-      
+        </script>
     </body>
-    <script src="Js/slides.js"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'Js/slides.js' %}"></script>
     </html>

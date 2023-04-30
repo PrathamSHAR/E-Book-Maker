@@ -1,0 +1,35 @@
+#content{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#content th,#content td{
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #000;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+ 
+th{
+    background-color:rgb(102, 100, 100)
+}
+
+.container{
+    position: absolute;
+    top: 45%;
+    left:10%;
+    width: 80%;
+}
+
+.search{
+    position: absolute;
+    top:35%;
+    left:25%;
+}
+
+.search input{
+    width: 300px;
+    padding:10px 30px;
+    font-size: 20px;
+}

@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    
+<link  href="{% static 'style/style.css' %}" rel="stylesheet">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="toolbar">
+        <div class="texttool item" >
+            <button id="text-button" onclick="show(1,'text')"><i class='bx bx-text' style="font-size: 30px;"></i><br>Text</button>
+        </div>
+        <div class="media item">
+            <button id="media-button" onclick="show(2,'media')"><i class='bx bx-cloud-upload' style="font-size: 30px;"></i><br>Uploads</button>
+            
+        </div>
+        <div class="shapes item">
+            <button id="shapes-button" onclick="show(3,'media')"><i class='bx bxs-shapes' style="font-size: 30px;"></i><br>Shapes</button>
+            
+        </div>
+
+        <div class="emoji item">
+            <button onclick="show(4,'emoji')"><i class='bx bx-happy-beaming' style="font-size: 30px;"></i><br>Emoji</button>
+            
+        </div>
+    </div>
+    <div  id="popups" class="popups" >
+        <div id="text" class="text">
+            <select name="" id="" onchange="formatDoc('formatBlock',this.value);this.selectedIndex=0;">
+                <option selected="" hidden="">Format</option>
+                <option value="h1">Heading 1</option>
+                <option value="h2">Heading 2</option>
+                <option value="h3">Heading 3</option>
+                <option value="h4">Heading 4</option>
+                <option value="h5">Heading 5</option>
+                <option value="h6">Heading 6</option>
+                <option value="p">Paragraph</option>
+            </select>
+            <select name="" id="" onchange="formatDoc('fontSize',this.value);this.selectedIndex=0;">
+                <option selected="" hidden="">Font Size</option>
+                <option value="1">Extra small</option>
+                <option value="2">Small</option>
+                <option value="3">Regular</option>
+                <option value="4" >Medium</option>
+                <option value="5">Large</option>
+                <option value="6">Extra Large</option>
+                <option value="7">Big</option>
+            </select>
+            <div class="color">Font-Color:<input type="color" oninput="formatDoc('forecolor',this.value);this.value='#000000'"></div>
+            <div class="color">Highlight-Text:<input type="color" oninput="formatDoc('hiliteColor',this.value);this.value='#ffffff'"></div>
+            <div class="bg color">Background Color:<input type="color" oninput="changebkg(this.value)" value="#ffffff"></div>
+            <button onclick="formatDoc('bold')"><i class='bx bx-bold'style="font-size: 17px;"></i></button>
+            <button onclick="formatDoc('italic')"><i class='bx bx-italic' style="font-size: 17px;"></i></button>
+            <button onclick="formatDoc('underline')"><i class='bx bx-underline' style="font-size: 17px;"></i></button>
+            <button onclick="formatDoc('justifyLeft')"><i class='bx bx-align-left' style="font-size: 17px;"></i></button>
+            <button onclick="formatDoc('justifyCenter')"><i class='bx bx-align-middle' style="font-size: 17px;"></i></button>
+            <button onclick="formatDoc('justifyRight')"><i class='bx bx-align-right' style="font-size: 17px;"></i></button>
+            <button onclick="formatDoc('justifyFull')"><i class='bx bx-align-justify' style="font-size: 17px;"></i></button>
+            <button id="add-sign" onclick="add_text()">Add Text</i></button>
+            <button  class="move" onclick="move('active-text')"><i class='bx bx-move' style="font-size: 17px;"></i></button>
+            <button id="remove" onclick="remove('active-text')"><i class='bx bx-x' style="font-size: 25px;"></i></button>
+        </div>
+        <div class="media">
+            <div class="img-ele">Image:<input type="file" class="file" multiple="multiple"></div>
+            <div class="sticker">
+            Online Pictures:
+                <div class="input-container">
+                    <input style="padding: 6px 10px;" type="text" class='search-input' placeholder="Search">
+                    <button style="height:30px ;width:30px;">Go</button>
+                </div>
+            <div class="output"></div>
+            <hr>
+            </div>
+            <div class="img-ele">Height:<input type="number"  value="150" min="0" onchange="changeheight(this.value)"></div>
+            <div class="img-ele">Width:<input type="number"  value="200" min="0" onchange="changewidth(this.value)"></div>
+            <div class="img-ele">Transparency:<input type="range" min="1" max="100" value="100" onchange="opacity(this.value)"></div>
+            
+           
+            <button id="remove" onclick="remove('active-img')"><i class='bx bx-x' style="font-size: 25px;"></i></button>
+            
+        </div>
+        
+        <div class="shapes">Shapes:
+            <div class="container">
+                <div class="circle" onclick="addshape('circle')"></div>
+                <div class="square" onclick="addshape('square')"></div> 
+                <div class="rectangle" onclick="addshape('rectangle')"></div>
+                <div class="oval" onclick="addshape('oval')"></div>
+                <div class="parallelogram" onclick="addshape('parallelogram')"></div>
+                <div class="triangle" onclick="addshape('triangle')"></div>
+                <div class="trapezoid" onclick="addshape('trapezoid')"></div>
+            </div>
+            <div class="shape-ele">Height:<input type="number"  min="0" max="99999999999999999" value="50"  onchange="shapeheight(this.value)"></div>
+            <div class="shape-ele">Width:<input type="number" class="shape-width"  min="0" value="50" onchange="shapewidth(this.value)"></div>
+            <div class="shape-ele">Transparency:<input type="range" min="1" max="100" value="100" onchange="opacityshape(this.value)"></div>
+            <div class="shape-ele">Color:<input type="color" onchange="setcolor(this.value)"></div>
+            <button class="shape-ele" onclick="rotate(90)">Rotate</button>
+          
+            <button class="shape-ele" onclick="remove('active-shape')"><i class='bx bx-x' style="font-size: 20px;"></i></button>
+        </div>
+        <div class="emoji">
+            Emojis:
+            <div class="emoji-container"></div>
+            <div class="emoji-ele">Size:<input type="number" class="size" min="0" value="50" onchange="changesize(this.value)"></div>
+           
+            <button class="emoji-ele" onclick="remove('active-emoji')"><i class='bx bx-x' style="font-size: 20px;"></i></button>
+        </div>
+    </div>
+    
+    <div class="left" onclick="previous()"><i class='bx bx-chevrons-left' style="font-size: 45px;"></i></div>
+    
+    <div class="pages _0" id="active-page" ></div>
+
+    <div class="right" onclick="next()"><i class='bx bx-chevrons-right' style="font-size: 45px;"></i></div>
+    <div class="add-page" onclick="add_page()"><i class='bx bx-plus-medical' style="font-size: 25px;"></i></div>
+    
+    <div class="save"><button onclick="screen()">Save this page</button></div>
+    <div class="final"><button onclick="pdf()">Preview as pdf</button></div>
+   
+    
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+   <script src="{% static '/javascripts/drag.js' %}"></script>
+<script src="{% static '/javascripts/main.js' %}"></script>
+<script src="{% static '/javascripts/emoji.js' %}"></script>
+<script src="{% static '/javascripts/pages.js' %}"></script>
+<script src="{% static '/javascripts/shapechanger.js' %}"></script>
+<script src="{% static '/javascripts/sticker.js' %}"></script>
+
+</html>

@@ -1,0 +1,74 @@
+body{
+    margin: 0;
+}
+.topbar{
+    background-image:url(/images/lib3.jpg);
+    height: 600px;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+.topbar>.text{
+    position: absolute;
+    top: 200px;
+    left: 250px;
+    font-family: 'Times New Roman';
+    font-size: 60px;
+    font-style: italic;
+    color:white;
+    background-color: rgb(63, 20, 20,0.4);
+    
+}
+.text:hover{
+    opacity: 1;
+}
+#img{
+    position: absolute;
+    right: 10px;
+    top:10px;
+}
+#img img{
+  width: 40px;
+  border-radius: 50%;
+}
+#name,#home,#store,#abt,#contact,#search{
+  display: inline-block;
+  margin-top: 10px;
+  color: white;
+}
+#search{
+  border-radius: 20%;
+  width: 300px;
+  margin-left: 30px;
+}
+#search input{
+  border-radius: 30px;
+  text-align: center;
+  height:30px;
+  width: 100%;
+  border: none;
+}
+
+#navbar a{
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+#navbar{
+    position: sticky;
+    height:50px;
+    top: 0px;
+    background-color: rgb(0,0, 0,0.3);
+    z-index: 99;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+#navbar>#abt{
+    background-color: brown;
+    display: inline-block;
+    border-radius: 50%;
+  }
+#home:hover,#store:hover,#abt:hover,#contact:hover{
+  background-color: brown;
+    border-radius: 50%;
+}

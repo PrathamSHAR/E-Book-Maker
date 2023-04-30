@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 
 class books(models.Model):
@@ -18,3 +19,9 @@ class books(models.Model):
 
 
 # Create your models here.
+
+class readrate(models.Model):
+    title=models.CharField(max_length=254)
+    rate=models.IntegerField()
+    hitrate=models.IntegerField()
+    date_time=models.DateTimeField(default=timezone.now)

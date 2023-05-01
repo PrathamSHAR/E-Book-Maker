@@ -12,7 +12,7 @@ urlpatterns=[
     path('bookscollection/',views.show,name='Books Collection'),
     path(r'^$', search, name='search'),
     path('submission/',views.submission,name='submission'),
-    # path('rate/',views.rate,name='rate'),
+    path('rate=<int:r>',views.rate,name='rate'),
 
     
 ]

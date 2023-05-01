@@ -56,3 +56,12 @@ def search(request):
 def submission(request):
      template =loader.get_template('submission.html')
      return HttpResponse(template.render({},request))
+
+
+
+
+## Manupulation By Pratham
+def rate(request):
+     rating=request.GET.get('r')
+     print("here is rating",rating)
+     

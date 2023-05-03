@@ -67,8 +67,8 @@ body {
 
 /* Individual bars */
 .bar-5 {width: 60%; height: 18px; background-color: #04AA6D;}
-.bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
-.bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
+.bar-4 {width:2%  ;height: 18px; background-color: #2196F3;}
+.bar-3 {width: "{{ hits }}%"; height: 18px; background-color: #00bcd4;}
 .bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
 .bar-1 {width: 15%; height: 18px; background-color: #f44336;}
 
@@ -106,9 +106,9 @@ body {
                     <td><a href="/media/{{x.file}}" >Read</a> 
                         
 <span class="heading">User Rating</span>
-<span class="fa fa-star checked" style="color:#f44336"></span>
-<span class="fa fa-star checked" style="color:#ff9800"></span>
-<span class="fa fa-star checked" style="color:#00bcd4"></span>
+<a href="/rate?r=1"><span class="fa fa-star checked" style="color:#f44336"></span></a>
+<a href="/rate?r=2"><span class="fa fa-star checked" style="color:#ff9800"></span></a>
+<a href="/rate?r=3"><span class="fa fa-star checked" style="color:#00bcd4"></span></a>
 <a href="/rate?r=4" style="color:#2196F3"><span class="fa fa-star"></span></a>
 <a href="/rate?r=5" style="color:#04AA6D"><span class="fa fa-star" ></span></a> 
 <p>4.1 average based on 254 reviews.</p>
@@ -120,7 +120,7 @@ body {
   </div>
   <div class="middle">
     <div class="bar-container">
-      <div class="bar-5"></div>
+      <div  style="width: {{hit5}}%; height: 18px; background-color: #04AA6D;" ></div>
     </div>
   </div>
   <div class="side right">
@@ -131,7 +131,7 @@ body {
   </div>
   <div class="middle">
     <div class="bar-container">
-      <div class="bar-4"></div>
+      <div  style="width: {{hit4}}%; height: 18px; background-color: #2196F3;" ></div>
     </div>
   </div>
   <div class="side right">
@@ -142,7 +142,7 @@ body {
   </div>
   <div class="middle">
     <div class="bar-container">
-      <div class="bar-3"></div>
+      <div style="width: {{hit3}}%; height: 18px; background-color: #00bcd4;" ></div>
     </div>
   </div>
   <div class="side right">
@@ -153,7 +153,7 @@ body {
   </div>
   <div class="middle">
     <div class="bar-container">
-      <div class="bar-2"></div>
+      <div  style="width: {{hit2}}%; height: 18px; background-color: #ff9800;" ></div>
     </div>
   </div>
   <div class="side right">
@@ -164,7 +164,7 @@ body {
   </div>
   <div class="middle">
     <div class="bar-container">
-      <div class="bar-1"></div>
+      <div  style="width: {{hit1}}%; height: 18px; background-color: #f44336;" ></div>
     </div>
   </div>
   <div class="side right">

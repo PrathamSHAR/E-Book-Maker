@@ -32,6 +32,12 @@ def show(request):
     records=books.objects.all().values()
     context={
         'records':records,
+        'hit1':5,
+        'hit2':30,
+        'hit3':20,
+        'hit4':40,
+        'hit5':60,
+
     }
     return HttpResponse(template.render(context,request))
 
@@ -50,6 +56,11 @@ def search(request):
         context={
             'records':records,
             'submitbutton':submitbutton,
+            'hit1':5,
+            'hit2':30,
+            'hit3':20,
+            'hit4':40,
+            'hit5':60,
         }
         return render(request,'show.html',context)
     

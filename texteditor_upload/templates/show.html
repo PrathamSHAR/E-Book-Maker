@@ -106,12 +106,12 @@ body {
                     <td><a href="/media/{{x.file}}" >Read</a> 
                         
 <span class="heading">User Rating</span>
-<a href="/rate?r=1"><span class="fa fa-star checked" style="color:#f44336"></span></a>
-<a href="/rate?r=2"><span class="fa fa-star checked" style="color:#ff9800"></span></a>
-<a href="/rate?r=3"><span class="fa fa-star checked" style="color:#00bcd4"></span></a>
-<a href="/rate?r=4" style="color:#2196F3"><span class="fa fa-star"></span></a>
-<a href="/rate?r=5" style="color:#04AA6D"><span class="fa fa-star" ></span></a> 
-<p>4.1 average based on 254 reviews.</p>
+<a href="/rate?r=1&title={{x.title}}"><span class="fa fa-star checked" style="color:#f44336"></span></a>
+<a href="/rate?r=2&title={{x.title}}"><span class="fa fa-star checked" style="color:#ff9800"></span></a>
+<a href="/rate?r=3&title={{x.title}}"><span class="fa fa-star checked" style="color:#00bcd4"></span></a>
+<a href="/rate?r=4&title={{x.title}}" style="color:#2196F3"><span class="fa fa-star"></span></a>
+<a href="/rate?r=5&title={{x.title}}" style="color:#04AA6D"><span class="fa fa-star" ></span></a> 
+<p>{{x.avgrating}} average based on {{x.hitrate}} reviews.</p>
 <hr style="border:3px solid #f1f1f1">
 
 <div class="row">
@@ -120,55 +120,55 @@ body {
   </div>
   <div class="middle">
     <div class="bar-container">
-      <div  style="width: {{hit5}}%; height: 18px; background-color: #04AA6D;" ></div>
+      <div  style="width: {{x.fiveper}}%; height: 18px; background-color: #04AA6D;" ></div>
     </div>
   </div>
   <div class="side right">
-    <div>150</div>
+    <div>{{x.fivestar}}</div>
   </div>
   <div class="side">
     <div>4 star</div>
   </div>
   <div class="middle">
     <div class="bar-container">
-      <div  style="width: {{hit4}}%; height: 18px; background-color: #2196F3;" ></div>
+      <div  style="width: {{x.fourper}}%; height: 18px; background-color: #2196F3;" ></div>
     </div>
   </div>
   <div class="side right">
-    <div>63</div>
+    <div>{{x.fourstar}}</div>
   </div>
   <div class="side">
     <div>3 star</div>
   </div>
   <div class="middle">
     <div class="bar-container">
-      <div style="width: {{hit3}}%; height: 18px; background-color: #00bcd4;" ></div>
+      <div style="width: {{x.threeper}}%; height: 18px; background-color: #00bcd4;" ></div>
     </div>
   </div>
   <div class="side right">
-    <div>15</div>
+    <div>{{x.threestar}}</div>
   </div>
   <div class="side">
     <div>2 star</div>
   </div>
   <div class="middle">
     <div class="bar-container">
-      <div  style="width: {{hit2}}%; height: 18px; background-color: #ff9800;" ></div>
+      <div  style="width: {{x.twoper}}%; height: 18px; background-color: #ff9800;" ></div>
     </div>
   </div>
   <div class="side right">
-    <div>6</div>
+    <div>{{x.twostar}}</div>
   </div>
   <div class="side">
     <div>1 star</div>
   </div>
   <div class="middle">
     <div class="bar-container">
-      <div  style="width: {{hit1}}%; height: 18px; background-color: #f44336;" ></div>
+      <div  style="width: {{x.oneper}}%; height: 18px; background-color: #f44336;" ></div>
     </div>
   </div>
   <div class="side right">
-    <div>20</div>
+    <div>{{x.onestar}}</div>
   </div>
 </div>
 

@@ -15,12 +15,13 @@ class books(models.Model):
     threestar=models.IntegerField(default=0)
     fourstar=models.IntegerField(default=0)
     fivestar=models.IntegerField(default=0)
-    avgrating=models.FloatField(default=0.0)
+    avgrating=models.FloatField(default=0.0,max_length=3)
     oneper=models.IntegerField(default=0)
     twoper=models.IntegerField(default=0)
     threeper=models.IntegerField(default=0)
     fourper=models.IntegerField(default=0)
     fiveper=models.IntegerField(default=0)
+    
 
 
 

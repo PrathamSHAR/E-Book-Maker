@@ -87,7 +87,9 @@ def rate(request):
                record1.twoper=((two)*100)/(totalhits+1)
                record1.threeper=((three)*100)/(totalhits+1)
                record1.fiveper=((five)*100)/(totalhits+1)
-               record1.avgrating=((one+1)*1+two*2+three*3+four*4+five*5)/((totalhits+1))
+               ar=((one+1)*1+two*2+three*3+four*4+five*5)/((totalhits+1))
+               record1.avgrating=round(ar,1)
+               
                
 
           case 2:
@@ -97,7 +99,8 @@ def rate(request):
                record1.twoper=((two+1)*100)/(totalhits+1)
                record1.threeper=((three)*100)/(totalhits+1)
                record1.fiveper=((five)*100)/(totalhits+1)
-               record1.avgrating=(one*1+(two+1)*2+three*3+four*4+five*5)/((totalhits+1))
+               ar=(one*1+(two+1)*2+three*3+four*4+five*5)/((totalhits+1))
+               record1.avgrating=round(ar,1)
 
           case 3:
                record1.threestar=three+1

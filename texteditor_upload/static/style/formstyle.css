@@ -1,0 +1,15 @@
+input{
+    padding: 6px 10px;
+    margin: 10px;
+    border:0px;
+    border-bottom: 1px solid black;
+}
+form{
+    margin: 20px;
+    width: 450px;
+    margin-left: 400px;
+}
+
+#pdf,#cover{
+    border: 0;
+}

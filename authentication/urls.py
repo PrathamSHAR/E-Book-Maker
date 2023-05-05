@@ -9,5 +9,6 @@ urlpatterns = [
    path('signout',views.signout,name='signout'),
    path('activate/<uidb64>/<token>',views.activate,name='activate'),
    path('inputotp',views.inputotp,name='inputotp'),
+   path('editor',views.editor,name='editor'),
   
 ]

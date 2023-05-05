@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/homestyle.css">
+        <link rel="stylesheet" href="css/slidestyling.css">
+        <link rel="stylesheet" href="css/slide2styling.css">
+        
+        <title>
+            Home Page
+        </title>
+    </head>
+    <body>
+
+    <!--        Top Bar                     -->   
+        <div class="topbar" >
+            <div class="text"><p><b>"A writer only begins a book.<br>A reader finishes it."</b></p></div>
+            <div id="navbar">
+                <div id="name" style="font-size: 30px;margin-right: 90px;margin-left: 20px;">WEB NAME</div>
+                <div id="home"><a href="homepage.html">Home</a></div>
+                <div id="store"><a href="store.html">Store</a></div>
+                <div id="contact"><a href="">Contact</a></div>
+                <div id="abt"><a href="about.html">About</a></div>
+                <div id="img">
+                    <a href="profile.html"><img src="images/profile.png" alt="profile" width=35px></a>
+                </div>
+                <div id="search">
+                    <form action="">
+                        <input type="text" name="srch" placeholder="Search" >
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    <!--       reader and author Block       -->
+    <div class="readerauthor">
+        <a href="reader.html">
+        <div class="reader">
+            <div class="text"><pre>Read and Explore </pre></div>
+        </div>
+        </a>
+        <a href="editor.html">
+        <div class="author">
+            <div class="text">Editor</div>
+        </div>
+        </a>
+    </div>
+
+
+    <!--        Most readed Books               -->
+    <fieldset>
+        <legend style="font-family:Georgia; font-size: 30px;"><i>Most readed Books</i></legend>
+    <div class="toprated">
+        <a  class="prev" onclick="showp()">&laquo;</a>
+        <div class="container" id="container">
+            <div class="item">
+                <img src="images/book cover.jpg">
+                <div class="num">1</div>
+            </div>
+
+            <div class="item">
+                <img src="images/book cover1.jpeg">
+                <div class="num">2</div>
+            </div>
+
+            <div class="item">
+                <img src="images/book cover2.jpg">
+                <div class="num">3</div>
+            </div>
+
+            <div class="item">
+                <img src="images/book cover3.jpg">
+                <div class="num">4</div>
+            </div>
+
+            <div class="item">
+                <img src="images/book cover4.jpeg">
+                <div class="num">5</div>
+            </div>
+
+            <div class="item">
+                <img src="images/book cover5.jpeg">
+                <div class="num">6</div>
+            </div>
+
+            <div class="item">
+                <img src="images/book cover6.jpg">
+                <div class="num">7</div>
+            </div>
+        </div>
+        <a class="next" onclick="show()">&raquo;</a>
+    </div>
+    </fieldset>
+
+    <br>
+
+      <!--            Top rated Books        -->    
+      <fieldset>
+        <legend style="font-family:Georgia; font-size: 30px;"><i>Top Rated</i></legend>
+        <div class="liked">
+            <div class="slider">
+                <div class="container">
+                    <div class="slide">
+                       <img src="images/book cover.jpg">
+                    </div>
+                    <div class="slide">
+                        <img src="images/book cover1.jpeg">
+                     </div>
+                     <div class="slide">
+                        <img src="images/book cover2.jpg">
+                     </div>
+                     <div class="slide">
+                        <img src="images/book cover3.jpg">
+                     </div>
+                     <div class="slide">
+                        <img src="images/book cover4.jpeg">
+                     </div>
+                     <div class="slide">
+                        <img src="images/book cover5.jpeg">
+                     </div>
+                     <div class="slide">
+                        <img src="images/book cover6.jpg">
+                     </div>
+                     <div class="slide">
+                        <img src="images/book cover.jpg">
+                     </div>
+                     <div class="slide">
+                         <img src="/images/book cover1.jpeg">
+                      </div>
+                      <div class="slide">
+                         <img src="images/book cover2.jpg">
+                      </div>
+                      <div class="slide">
+                         <img src="images/book cover3.jpeg">
+                      </div>
+                      <div class="slide">
+                         <img src="images/book cover4.jpeg">
+                      </div>
+                      <div class="slide">
+                         <img src="images/book cover5.jpeg">
+                      </div>
+                      <div class="slide">
+                         <img src="images/book cover6.jpg">
+                      </div>
+                </div>
+            </div>
+            
+        </div>
+        </fieldset>
+
+        <!--footer-->
+        <div class="footer">
+
+        </div>
+    </body>
+    <script src="Js/slides.js"></script>
+    </html>

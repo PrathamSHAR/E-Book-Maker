@@ -6,8 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+ body{
+        background-color:rgb(214, 160, 160);
+    }
+/* .otp-form{
+   
+   background-color: ;
+} */
+</style>
 <body>
-    <form method="post" action="/inputotp">
+    <form method="post" action="/inputotp" class="otp-form">
         {% csrf_token %}
         <input type="hidden" id="username" name='username' value={{username}} placeholder="Username" />
         <input type="text" id="otp" name='otp' placeholder="OTP" required/>

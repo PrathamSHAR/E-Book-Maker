@@ -1,11 +1,13 @@
+
 body{
     margin: 0;
 }
 /* topbar*/
 .topbar{
-    background-image:url('images/lib3.jpg');
+    background-image:url('static/images/lib3.jpg');
     height: 600px;
-    background-size: auto;
+    width:100%;
+    background-size: 100%;
     background-repeat: no-repeat;
 }
 .topbar>.text{

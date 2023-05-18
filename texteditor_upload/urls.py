@@ -13,6 +13,8 @@ urlpatterns=[
     path(r'^$', search, name='search'),
     path('submission/',views.submission,name='submission'),
     path('rate/',views.rate,name='rate'),
+    path('reading/',views.reading,name='reading'),
+
 
     
 ]

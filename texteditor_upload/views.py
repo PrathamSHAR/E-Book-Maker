@@ -72,6 +72,7 @@ def rate(request):
      record1=books.objects.get(title=gettitle)
      totalhits=record1.hitrate
      record1.hitrate=totalhits+1
+     ar=0.0
 
      # calculating % of rating
      one=record1.onestar
@@ -88,7 +89,7 @@ def rate(request):
                record1.threeper=((three)*100)/(totalhits+1)
                record1.fiveper=((five)*100)/(totalhits+1)
                ar=((one+1)*1+two*2+three*3+four*4+five*5)/((totalhits+1))
-               record1.avgrating=round(ar,1)
+               
                
                
 
@@ -100,7 +101,7 @@ def rate(request):
                record1.threeper=((three)*100)/(totalhits+1)
                record1.fiveper=((five)*100)/(totalhits+1)
                ar=(one*1+(two+1)*2+three*3+four*4+five*5)/((totalhits+1))
-               record1.avgrating=round(ar,1)
+               
 
           case 3:
                record1.threestar=three+1
@@ -110,7 +111,7 @@ def rate(request):
                record1.threeper=((three+1)*100)/(totalhits+1)
                record1.fiveper=((five)*100)/(totalhits+1)
                ar=(one*1+two*2+(three+1)*3+four*4+five*5)/((totalhits+1))
-               record1.avgrating=round(ar,1)
+               
 
           case 4:
                record1.fourstar=four+1
@@ -120,7 +121,7 @@ def rate(request):
                record1.threeper=((three)*100)/(totalhits+1)
                record1.fiveper=((five)*100)/(totalhits+1)
                ar=(one*1+two*2+three*3+(four+1)*4+five*5)/((totalhits+1))
-               record1.avgrating=round(ar,1)
+               
 
           case 5:
                record1.fivestar=five+1
@@ -130,9 +131,9 @@ def rate(request):
                record1.threeper=((three)*100)/(totalhits+1)
                record1.fiveper=((five+1)*100)/(totalhits+1)
                ar=(one*1+two*2+three*3+four*4+(five+1)*5)/((totalhits+1))
-               record1.avgrating=round(ar,1)
-          
                
+     record1.avgrating=round(ar,1)    
+     request.session['title'] =gettitle        
      record1.save()
 
 
@@ -140,5 +141,25 @@ def rate(request):
 
      print("here is rating",rating,gettitle)
      return redirect('/bookscollection/')
+
+
+def reading(request):
+    rating=request.GET.get('f')
+    gettitle=request.GET.get('title')
+    record1=books.objects.get(title=gettitle)
+    readrating=record1.readrate
+    readtitle= request.session.get('readtitle', None)
+    if(readtitle==gettitle):
+          print(gettitle ,"already read")
+    else:
+          record1.readrate=readrating+1
+          record1.save()
+          request.session['readtitle'] =gettitle
+         
+   
+    x='/media/'+rating
+    print(gettitle)
+
+    return redirect(x)
 
      

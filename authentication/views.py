@@ -12,13 +12,16 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
 import datetime
+from texteditor_upload.models import books
 # from django.utils.encoding import force_bytes,force_text
 # from . tokens import generate_token
 # from django.core.mail import EmailMessage
 
 def home(request):
     fname = request.session.get('fname', None)
-    context={
+    records=books.objects.all().order_by('readrate')[:3]
+    context={   
+                'records':records,
                 'fname':fname
             }
     return render(request,'authentication/index.html',context)
@@ -62,7 +65,7 @@ def signup(request):
        #WELCOME EMAIL
        otp=random.randint(234532,999999)
        subject="Welcome to bg  - Django Login"
-       message= "Hello " + myuser.first_name + " Welcome to Bg Your otp is "+ str(otp)
+       message= "Hello " + myuser.first_name + " Welcome to Bookgram please varify your email through your otp. Your otp is "+ str(otp)
        from_email=settings.EMAIL_HOST_USER
        to_list=[myuser.email]
        send_mail(subject,message,from_email,to_list,fail_silently=True)
@@ -169,6 +172,7 @@ def inputotp(request):
             else:
                 return redirect('home')
         except:
+           
             return redirect('inputotp')
    
         
@@ -176,6 +180,7 @@ def inputotp(request):
 
 def editor(request):
      return render(request,'editor/index.html')
+
 
 
 

@@ -103,7 +103,9 @@ body {
                     <td>{{x.title}}</td>
                     <td>{{x.authorname}}</td>
                     <td>{{x.genre}}</td>
-                    <td><a href="/media/{{x.file}}" >Read</a> 
+                    <td><button>Add to cart</button></td>
+                    <td><a  href="/reading?f={{x.file}}&title={{x.title}}" >Read</a>
+                     
                         
 <span class="heading">User Rating</span>
 <a href="/rate?r=1&title={{x.title}}"><span class="fa fa-star checked" style="color:#f44336"></span></a>

@@ -131,7 +131,7 @@ nav ul a{
     <body>
 
     <!--        Top Bar                     -->   
-        <div class="topbar" >
+        <div class="topbar" style="background-image: url('{% static "images/lib3.jpg" %}');" >
             <div class="text"><p><b>"A writer only begins a book.<br>A reader finishes it."</b></p></div>
             <div id="navbar">
                 {% if user.is_authenticated  %}
@@ -206,6 +206,20 @@ nav ul a{
                 <img src="{% static 'images/book cover1.jpeg' %}">
                 <div class="num">2</div>
             </div>
+            
+                {% for x in records %}
+                <div class="item">
+                <img src="/media/{{x.cover_page}}" height="200px" width="160px" onclick= "hitUrl('http://localhost:8000//media/{{x.file}}')"/> 
+                
+                <div class="num">2</div>
+
+                </div>
+           
+                {%endfor%}
+            
+
+                
+            
 
             <div class="item">
                 <img src="{% static 'images/book cover2.jpg' %}">
@@ -294,13 +308,28 @@ nav ul a{
 
         <!--footer-->
         <div class="footer">
-
+            
         </div>
         <script>
                  let subMenu = document.getElementById("sub-menu");
         function toggleMenu(){
             subMenu.classList.toggle("open-menu");
         }
+        function hitUrl(url) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // Request was successful
+      console.log('URL successfully hit:', url);
+    } else {
+      // Request encountered an error
+      console.log('Error hitting URL:', url);
+    }
+  };
+  xhr.send();
+}
+
 
         </script>
     </body>

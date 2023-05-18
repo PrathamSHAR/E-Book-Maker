@@ -21,6 +21,7 @@ class books(models.Model):
     threeper=models.IntegerField(default=0)
     fourper=models.IntegerField(default=0)
     fiveper=models.IntegerField(default=0)
+    readrate=models.IntegerField(default=0)
     
 
 
@@ -38,12 +39,14 @@ class books(models.Model):
 
 class readrate(models.Model):
     title=models.CharField(max_length=254)
-    rating=models.IntegerField()
-    hitrate=models.IntegerField()
-    onestar=models.IntegerField()
-    twostar=models.IntegerField()
-    threestar=models.IntegerField()
-    fourstar=models.IntegerField()
-    fivestar=models.IntegerField()
+    readrate=models.IntegerField()
     genre=models.CharField(max_length=254)
     date_time=models.DateTimeField(default=timezone.now)
+
+class cart(models.Model):
+    title=models.CharField(max_length=254)
+    price=models.IntegerField()
+    genre=models.CharField(max_length=254)
+    quant=models.IntegerField()
+    totalpayable=models.IntegerField()
+    

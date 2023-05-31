@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import search
+from .views import recommend_books
 
 urlpatterns=[
     path('texteditor/',views.texteditor,name='Text Editor'),
@@ -14,6 +15,7 @@ urlpatterns=[
     path('submission/',views.submission,name='submission'),
     path('rate/',views.rate,name='rate'),
     path('reading/',views.reading,name='reading'),
+    path('recommend/<int:user_id>/', recommend_books, name='recommend_books'),
 
 
     

@@ -162,4 +162,35 @@ def reading(request):
 
     return redirect(x)
 
+
+
+
+
+## Pratham
+
+
+from .models import User, Book, Rating, BookRecommender
+
+def recommend_books(request, user_id):
+    # Retrieve the user based on the user_id
+    user = User.objects.get(id=user_id)
+
+    # Create an instance of BookRecommender
+    recommender = BookRecommender(Rating.objects.all())
+
+    # Train the recommendation model
+    recommender.train_model()
+
+    # Get recommended books for the user
+    recommended_books = recommender.get_recommendations(user_id)
+
+    # Pass the recommended books to the template
+    context = {
+        'user': user,
+        'recommended_books': recommended_books
+    }
+
+    return render(request, 'recommendation.html', context)
+
+
      

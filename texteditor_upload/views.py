@@ -193,4 +193,55 @@ def recommend_books(request, user_id):
     return render(request, 'recommendation.html', context)
 
 
+
+## lord vishnu help
+
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+def get_recommendations(request):
+# Step 1: Data Collection
+# Assuming you have a dataset with columns: 'title', 'author', 'genre', 'description'
+
+# Step 2: Data Preprocessing
+# Assuming your dataset is in a CSV file named 'books.csv'
+    data = pd.read_csv('static\Book1.csv')
+    print(data.head())
+
+# Step 3: Feature Engineering
+# Creating a feature vector by combining relevant features
+    data['features'] = data['title'] + ' ' + data['author'] + ' ' + data['genre'] + ' ' + data['description']
+
+# Step 4: Model Training
+# Vectorize the feature text using TF-IDF
+    vectorizer = TfidfVectorizer()
+    feature_matrix = vectorizer.fit_transform(data['features'])
+    print(feature_matrix)
+
+# Compute the cosine similarity between feature vectors
+    similarity_matrix = cosine_similarity(feature_matrix)
+    print("sjdfhai",similarity_matrix)
+# Step 5: Generating Recommendations
+# def get_recommendations():
+    num_recommendations=20
+    book_title = "The Hobbit"
+    book_index = data[data['title'] == book_title].index[0]  # Get index of the book
+
+    # Get similarity scores for the book
+    book_similarities = similarity_matrix[book_index]
+
+    # Get top similar books based on similarity scores
+    top_indices = book_similarities.argsort()[::-1][1:num_recommendations+1]
+    top_books = data.iloc[top_indices]['title'].values
+    for book in top_books:
+        print(book)
+    
+
+# Step 6: Using the Recommendation System
+# book_title = "The Catcher in the Rye"
+# recommendations = get_recommendations(book_title)
+# print(f"Recommendations for '{book_title}':")
+# for book in recommendations:
+#     print(book)
      

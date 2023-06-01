@@ -16,6 +16,7 @@ urlpatterns=[
     path('rate/',views.rate,name='rate'),
     path('reading/',views.reading,name='reading'),
     path('recommend/<int:user_id>/', recommend_books, name='recommend_books'),
+    path('retest/',views.get_recommendations,name='get_recommendations'),
 
 
     

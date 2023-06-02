@@ -20,8 +20,10 @@ from texteditor_upload.models import books
 def home(request):
     fname = request.session.get('fname', None)
     records=books.objects.all().order_by('readrate')[:3]
+    records1=books.objects.all().order_by('avgrating')[:3]
     context={   
                 'records':records,
+                'records1':records1,
                 'fname':fname
             }
     return render(request,'authentication/index.html',context)

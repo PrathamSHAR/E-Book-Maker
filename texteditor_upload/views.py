@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.http import FileResponse
 
 
+
 # Create your views here.
 def texteditor(request):
     template =loader.get_template('index.html')
@@ -208,7 +209,11 @@ def get_recommendations(request):
 # Assuming your dataset is in a CSV file named 'books.csv'
     data = pd.read_csv('static\Book1.csv')
     print(data.head())
+    print("sdjfnia",data['genre'][0][1])
+    genredata=data['genre'][0]
 
+    for x in genredata:
+        print("genredata",x)
 # Step 3: Feature Engineering
 # Creating a feature vector by combining relevant features
     data['features'] = data['title'] + ' ' + data['author'] + ' ' + data['genre'] + ' ' + data['description']
@@ -224,7 +229,7 @@ def get_recommendations(request):
     print("sjdfhai",similarity_matrix)
 # Step 5: Generating Recommendations
 # def get_recommendations():
-    num_recommendations=20
+    num_recommendations=3
     book_title = "The Hobbit"
     book_index = data[data['title'] == book_title].index[0]  # Get index of the book
 
@@ -235,7 +240,13 @@ def get_recommendations(request):
     top_indices = book_similarities.argsort()[::-1][1:num_recommendations+1]
     top_books = data.iloc[top_indices]['title'].values
     for book in top_books:
-        print(book)
+        print("hello therr",book)
+    # record1=books.objects.values('authorname','title')
+    # record2=books.objects.values_list('authorname')
+    # print(record1)
+    # print(record2)
+    # features1 = [entry.authorname for entry in record1]   
+    # print(features1) 
     
 
 # Step 6: Using the Recommendation System
@@ -244,4 +255,57 @@ def get_recommendations(request):
 # print(f"Recommendations for '{book_title}':")
 # for book in recommendations:
 #     print(book)
+
+
+# import csv
+# import os
+
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# csv_file_path = os.path.join(BASE_DIR, 'static', 'Book1.csv')
+
+# with open(csv_file_path, 'w', newline='') as csvfile:
+#     writer = csv.writer(csvfile)
+#     writer.writerow('hi','hi','hi','hi')
+
+# import csv
+# import os
+
+# def insert_data_to_csv(request):
+#     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#     csv_file_path = os.path.join(BASE_DIR, 'static', 'Book1.csv')
+
+#     with open(csv_file_path, 'w', newline='') as csvfile:
+#         writer = csv.writer(csvfile)
+#         writer.writerow(['hill','hill','hi','hi'])
+
+
+
+#     csvfile.close()
+
+import csv
+import os
+
+def insert_data_to_csv(data_list):
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    csv_file_path = os.path.join(BASE_DIR, 'static', 'Book1.csv')
+
+    # Check if the CSV file already exists
+    file_exists = os.path.isfile(csv_file_path)
+
+    with open(csv_file_path, 'a', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+
+        # Write the header row if the file is newly created
+        if not file_exists:
+            header = ['title', 'author', 'genre','description']  # Replace with your header column names
+            writer.writerow(header)
+
+        writer.writerow(['hill','hill','hi','hi'])
+
+    csvfile.close()
+
+   
+
+
+
      

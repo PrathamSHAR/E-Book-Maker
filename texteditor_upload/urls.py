@@ -17,6 +17,7 @@ urlpatterns=[
     path('reading/',views.reading,name='reading'),
     path('recommend/<int:user_id>/', recommend_books, name='recommend_books'),
     path('retest/',views.get_recommendations,name='get_recommendations'),
+    path('insert-data/', views.insert_data_to_csv, name='insert_data'),
 
 
     

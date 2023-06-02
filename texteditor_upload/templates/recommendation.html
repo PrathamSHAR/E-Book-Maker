@@ -1,0 +1,7 @@
+<h1>Recommended Books for {{ user.name }}</h1>
+
+<ul>
+    {% for book in recommended_books %}
+        <li>{{ book.title }} by {{ book.author }}</li>
+    {% endfor %}
+</ul>

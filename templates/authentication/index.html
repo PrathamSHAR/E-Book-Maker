@@ -179,12 +179,12 @@ nav ul a{
     <!--       reader and author Block       -->
     <div class="readerauthor">
         <a href="/bookscollection">
-        <div class="reader">
+        <div class="reader" style="background-image: url('{% static "images/openbook.jpg" %}');">
             <div class="text"><pre>Read and Explore </pre></div>
         </div>
         </a>
         <a href="/texteditor">
-        <div class="author">
+        <div class="author" style="background-image: url('{% static "images/pen.jpg" %}');">
             <div class="text">Editor</div>
         </div>
         </a>
@@ -259,6 +259,11 @@ nav ul a{
         <div class="liked">
             <div class="slider">
                 <div class="container">
+                    {% for y in records1 %}
+                    <div class="slide">
+                        <img src="/media/{{y.cover_page}}" height="200px" width="160px" onclick= "hitUrl('http://localhost:8000//media/{{x.file}}')"/> 
+                     </div>
+                     {%endfor%}
                     <div class="slide">
                        <img src="{% static 'images/book cover.jpg' %}">
                     </div>

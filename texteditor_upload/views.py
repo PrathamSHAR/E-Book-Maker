@@ -23,7 +23,7 @@ def addrecord(request):
     b= request.POST['email'].lower()
     c= request.POST['title'].title()
     d= request.POST['genre'].title()
-    
+    insert_data_to_csv([a,b,c,d])
     record = books(authorname=a, email=b,title=c,genre=d,cover_page=request.FILES['cover'],file=request.FILES['pdf'])
     record.save()
     
@@ -230,7 +230,7 @@ def get_recommendations(request):
 # Step 5: Generating Recommendations
 # def get_recommendations():
     num_recommendations=3
-    book_title = "The Hobbit"
+    book_title = "hill"
     book_index = data[data['title'] == book_title].index[0]  # Get index of the book
 
     # Get similarity scores for the book
@@ -300,7 +300,7 @@ def insert_data_to_csv(data_list):
             header = ['title', 'author', 'genre','description']  # Replace with your header column names
             writer.writerow(header)
 
-        writer.writerow(['hill','hill','hi','hi'])
+        writer.writerow(data_list)
 
     csvfile.close()
 

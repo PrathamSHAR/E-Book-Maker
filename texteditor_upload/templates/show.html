@@ -96,14 +96,14 @@ body {
                 <th>Title</th>
                 <th>Author</th>
                 <th>Genre</th>
-                <th>Action</th>
+               
                 {% for x in records %}
                 <tr>
                     <td><img src="/media/{{x.cover_page}}" height="200px" width="160px"></td>
                     <td>{{x.title}}</td>
                     <td>{{x.authorname}}</td>
                     <td>{{x.genre}}</td>
-                    <td><button>Add to cart</button></td>
+                    
                     <td><a  href="/reading?f={{x.file}}&title={{x.title}}" >Read</a>
                      
                         
